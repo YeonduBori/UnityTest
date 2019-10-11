@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    [Header("시작,끝boolean")]
     public bool gameStart = false;
-
+    public bool gameEnded = false;
+    void Update()
+    {
+        
+    }
 }

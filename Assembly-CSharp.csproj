@@ -60,8 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\CamTracing.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\GameStart.cs" />
+    <Compile Include="Assets\Script\GameTextControl.cs" />
+    <Compile Include="Assets\Script\TestBarChange.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Unity Projects/UnityTest/UnityTest/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

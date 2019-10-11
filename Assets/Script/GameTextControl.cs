@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameStart : MonoBehaviour
+public class GameTextControl : MonoBehaviour
 {
     public Text resultText;
     int startIn5sec = 5;
@@ -21,6 +21,10 @@ public class GameStart : MonoBehaviour
     void Update()
     {
         Debug.Log(resultText.text);
+        if(GameManager.Instance.gameEnded == true)
+        {
+            resultText.text = "The Winner is " + "!";
+        }
     }
 
     void Count5sec()
