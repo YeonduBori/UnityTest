@@ -23,7 +23,6 @@ public class TestBarChange : MonoBehaviour
         else
         {
             hp -= Time.deltaTime * 100;
-            
         }
         Bar.fillAmount = hp / 100;
     }
