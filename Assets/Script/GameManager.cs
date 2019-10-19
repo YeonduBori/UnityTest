@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         HPBar_Visual();
-
+        HpZero();
     }
 
     /// <summary>

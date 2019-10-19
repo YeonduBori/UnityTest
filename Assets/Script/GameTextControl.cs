@@ -21,10 +21,15 @@ public class GameTextControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.gameEnded == true)
+        if(GameManager.Instance.gameEnded)
         {
+            string winner = "";
             //봇 양쪽 체력 비교
-            resultText.text = "The Winner is " + "!";
+            if (GameManager.Instance.knightHP > GameManager.Instance.undeadHP)
+                winner = "Knight";
+            else
+                winner = "Undead";
+            resultText.text = "The Winner is " + winner + "!";
         }
     }
 
@@ -42,12 +47,12 @@ public class GameTextControl : MonoBehaviour
             InvokeRepeating("Count60sec", 2f, 1f);
         }
         startIn5sec--;
-        Debug.Log(startIn5sec);
+        //Debug.Log(startIn5sec);//시간 구현 완료
     }
-    
+
     void Count60sec()
     {
-        if(fightTime > 0)
+        if(fightTime > 0 && !GameManager.Instance.gameEnded)
         {
             resultText.text = "Time : " + fightTime;
             fightTime--;
@@ -57,6 +62,6 @@ public class GameTextControl : MonoBehaviour
             CancelInvoke("Count60sec");
             GameManager.Instance.gameEnded = true;
         }
-        Debug.Log(fightTime);
+        //Debug.Log(fightTime);//시간 구현 완료
     }
 }
