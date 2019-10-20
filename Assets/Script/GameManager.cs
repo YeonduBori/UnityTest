@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public float knightHP, undeadHP = 100f;
     [Header("HPBar")]
     public Image knightBar, undeadBar;
+    public Text tvKnight, tvUndead;
     void Update()
     {
         HPBar_Visual();
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         knightBar.fillAmount = knightHP / 100;
         undeadBar.fillAmount = undeadHP / 100;
+        tvKnight.text = knightHP + "/100";
+        tvUndead.text = undeadHP + "/100";
     }
     /// <summary>
     /// knight와 undead 중 한쪽의 피가 다 닳으면 게임을 즉시 종료시키는 gameEnded를 true로 변환

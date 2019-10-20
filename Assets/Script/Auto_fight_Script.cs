@@ -5,19 +5,21 @@ using UnityEngine;
 public class Auto_fight_Script : MonoBehaviour
 {
     public GameObject FightTarget;
-    public float moveSpeed = 3f;//움직이는 속도로 디버그용으로 우선 public 선언
-    public float atkPerSec;
+    public float moveSpeed = 1f;//움직이는 속도로 디버그용으로 우선 public 선언
+    
     public enum BotType {knight, undead};
     public BotType botType;
     CharacterController characterController;
     Animator characterAnimator;
-
+    float atkPerSec;
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         characterAnimator = GetComponent<Animator>();
+        atkPerSec = Random.Range(2.0f, 6.0f);
         StartCoroutine(CharacterAttack());
+        Debug.Log(gameObject.name + "'s atkPeriod is : " + atkPerSec);
     }
 
     // Update is called once per frame
@@ -29,6 +31,10 @@ public class Auto_fight_Script : MonoBehaviour
             if (!InAtkRange())
             {
                 CharacterMove();
+            }
+            else
+            {
+                characterAnimator.SetInteger("anim_Status", 2);
             }
         }
         else if (GameManager.Instance.gameEnded)
@@ -60,7 +66,6 @@ public class Auto_fight_Script : MonoBehaviour
         {
             if (InAtkRange())
             {
-                characterAnimator.SetInteger("anim_Status", 2);
                 if (botType == BotType.knight)
                 {
                     GameManager.Instance.undeadHP -= 20f;
