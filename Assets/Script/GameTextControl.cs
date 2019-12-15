@@ -8,29 +8,39 @@ public class GameTextControl : MonoBehaviour
     public Text resultText;
     int startIn5sec = 5;
     int fightTime = 60;
+    bool check = false;
     // Start is called before the first frame update
     void Start()
     {
-        if(GameManager.Instance.gameStart == false)
-        {
-            resultText.text = "Ready For Battle";
-            InvokeRepeating("Count5sec", 3f, 1f);
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.gameEnded)
+        if (GameManager.Instance && !check)
         {
-            string winner = "";
-            //봇 양쪽 체력 비교
-            if (GameManager.Instance.knightHP > GameManager.Instance.undeadHP)
-                winner = "Knight";
-            else
-                winner = "Undead";
-            resultText.text = "The Winner is " + winner + "!";
+            if (GameManager.Instance.gameStart == false)
+            {
+                resultText.text = "Ready For Battle";
+                InvokeRepeating("Count5sec", 3f, 1f);
+            }
+            check = true;
         }
+        if (GameManager.Instance && check)
+        {
+            if (GameManager.Instance.gameEnded)
+            {
+                string winner = "";
+                //봇 양쪽 체력 비교
+                if (GameManager.Instance.knightHP > GameManager.Instance.undeadHP)
+                    winner = "Knight";
+                else
+                    winner = "Undead";
+                resultText.text = "The Winner is " + winner + "!";
+            }
+        }
+        
     }
 
     void Count5sec()
