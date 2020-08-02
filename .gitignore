@@ -2,3 +2,5 @@ Library/
 Temp/
 obj/
 .vs/
+Assembly-CSharp.csproj
+Logs/Packages-Update.log
