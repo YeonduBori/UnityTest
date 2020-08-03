@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BotType 
+{
+knight,
+undead
+};
+
 public class Auto_fight_Script : MonoBehaviour
 {
     public GameObject FightTarget;
     public float moveSpeed = 1f;//움직이는 속도로 디버그용으로 우선 public 선언
     
-    public enum BotType {knight, undead};
     public BotType botType;
     CharacterController characterController;
     Animator characterAnimator;
