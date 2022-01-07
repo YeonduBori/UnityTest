@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+UniRxPractice/Library
+UniRxPractice/obj
+UniRxPractice/Logs
+UniRxPractice/.vsconfig
+UniRxPractice/UserSettings
