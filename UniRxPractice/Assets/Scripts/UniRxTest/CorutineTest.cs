@@ -10,10 +10,9 @@ public class CorutineTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //cancelEvent = Observable.FromCoroutine(AsyncA).
-        //                  SelectMany(AsyncB).
-        //                  Select(AsyncC).
-        //                  Subscribe();
+        cancelEvent = Observable.FromCoroutine(AsyncA).
+                          SelectMany(AsyncB).
+                          Subscribe();
     }
 
     private void Update()
